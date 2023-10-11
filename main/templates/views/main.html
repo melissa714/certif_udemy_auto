@@ -1,0 +1,44 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block 'body' %}
+<div class="d-flex h-100 text-center text-white index">
+    <video autoplay muted loop id="myVideo">
+        <source src="{% static 'videos/pop.mp4' %}" type="video/mp4">
+        <!-- Credit: https://www.pexels.com/@kelly-l-1179532 (Pexels.com)-->
+    </video>
+    <div class="d-flex w-100 h-100 p-3 mx-auto flex-column main-content">
+        <header class="mb-auto">
+            <div>
+                <h3 class="float-md-start mb-0">Melissa_Auto</h3>
+                <nav class="nav nav-masthead justify-content-center float-md-end">
+                 {% if request.user.is_authenticated %}
+                    <a class="nav-link active" aria-current="page" href="{% url "home" %}">Accueil</a>
+
+                    {% else %}
+                    <a class="nav-link" href="{% url "login" %}">Connexion</a>
+                 {% endif %}
+                </nav>
+            </div>
+        </header>
+        <main class="px-3">
+            <h2>Trouvez une offre près de chez vous !</h2>
+            <p class="lead">Vous cherchez à acheter ou à vendre une voiture d'occasion ?
+            </br> Melissa_Auto est le premier marché de voitures d'occasion.</p>
+            <p class="lead">
+                <a href="{% url "register" %}">
+                    <button type="button" class="btn btn-outline-secondary"> <h3>S'INSCRIRE</h3></button>
+                    </a>
+
+            </p>
+        </main>
+        <footer class="mt-auto text-white-50">
+            <p>Copyright © {% now 'Y' %} <a href="" class="text-white">Melissa_Auto</a> par <a href="#"
+                    class="text-white">melissa.com</a></p>
+        </footer>
+    </div>
+</div>
+{% endblock %}
+
+{% block 'footer' %}
+{% endblock %}

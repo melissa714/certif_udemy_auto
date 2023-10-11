@@ -1,0 +1,50 @@
+
+
+
+{% load static %}
+{% load crispy_forms_tags %} 
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+         <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <script src="" async defer></script>
+    </body>
+</html>
+
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+{% block 'body' %}
+<div class="text-center"  >
+    <main class="form-signin border border-dark  rounded">
+        <form action="" method="post" >
+            <img class="mb-4 mx-auto d-block" src="{% static 'images/logos.png' %}" alt="" width="100" >
+           
+             {{ login_form|crispy }} 
+              {% csrf_token %}
+                <button class="btn btn-danger w-100" type="submit">CONNEXION</button>
+            <p class="mt-5 mb-3 text-muted">Copyright © 2023 Melissa_Auto</p>
+        </form>
+    </main>
+</div>
+{% endblock %}

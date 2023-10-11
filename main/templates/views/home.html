@@ -1,0 +1,57 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block 'title' %}
+<title>Melissa_Auto Accueil</title>
+{% endblock 'title' %}
+
+{% block 'body' %}
+
+<main>
+
+    <section class="py-5 container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Melissa_Auto</h1>
+                <p>Le meilleur endroit pour acheter ou vendre a rendu les choses encore plus faciles</p>
+                <a href="" class="btn btn-primary my-2">Liste des Voitures</a>
+            </div>
+            <div class="col-lg-6 col-md-8 mx-8 mx-auto">
+                <!-- Listing Filter-->
+                <form method="get">
+                    {{ listing_filter.form|crispy}}
+
+                    <button action="btn btn-lg btn-danger" type="submit"/>Recherche</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    {% for listing in listing_filter.qs %}
+                    <div class="col">
+                        {% include "components/listing_card.html" %}
+
+                    </div>
+                    {% endfor %}
+            </div>
+
+        </div>
+
+<!---Pagination debut-->
+
+
+
+           
+        <!---->
+    </div>
+</main>
+
+
+
+{% endblock 'body' %}
